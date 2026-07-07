@@ -370,6 +370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0aa16164cfca846873519a072aebce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  scoreText: {fileID: 1333869101}
+  timerText: {fileID: 365825592}
+  gameTime: 60
 --- !u!4 &236613082
 Transform:
   m_ObjectHideFlags: 0

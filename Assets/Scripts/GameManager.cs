@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private int score;
     private float currentTime;
 
+    public int Score => score;
+
     private void Awake()
     {
         Instance = this;
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
         {
             currentTime = 0f;
             UpdateTimerUI();
+
+            ScoreData.Score = score;
 
             SceneManager.LoadScene("ResultScene");
             return;
