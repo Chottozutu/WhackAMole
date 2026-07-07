@@ -1,16 +1,39 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Mole : MonoBehaviour
+public class Mole : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private CanvasGroup canvasGroup;
+    private bool isHit;
+
+    private void Awake()
     {
-        
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        if (isHit)
+            return;
+
+        isHit = true;
+
+        Hide();
+    }
+
+    public void Show()
+    {
+        isHit = false;
+
+        canvasGroup.alpha = 1f;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+    }
+
+    public void Hide()
+    {
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
     }
 }
