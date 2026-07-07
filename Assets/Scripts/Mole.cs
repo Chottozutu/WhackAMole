@@ -18,6 +18,8 @@ public class Mole : MonoBehaviour, IPointerClickHandler
 
         isHit = true;
 
+        GameManager.Instance.AddScore(1);
+
         Hide();
     }
 
