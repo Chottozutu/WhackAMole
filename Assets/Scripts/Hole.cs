@@ -7,8 +7,6 @@ public class Hole : MonoBehaviour
     private void Awake()
     {
         mole = GetComponentInChildren<Mole>();
-
-        mole.Hide();
     }
 
     public void Show()

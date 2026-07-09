@@ -1,14 +1,22 @@
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
 public class Mole : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip hitSE;
+
     private CanvasGroup canvasGroup;
     private bool isHit;
 
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+
+        // ‰Šúó‘Ô‚Í”ñ•\¦
+        Hide();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -18,7 +26,11 @@ public class Mole : MonoBehaviour, IPointerClickHandler
 
         isHit = true;
 
+        GameManager.Instance.HitThisFrame = true;
+
         GameManager.Instance.AddScore(1);
+
+        AudioManager.Instance.NotifyHit();
 
         Hide();
     }
